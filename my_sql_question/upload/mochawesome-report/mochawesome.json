@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-17T04:51:13.012Z",
+    "end": "2024-06-17T04:51:13.090Z",
+    "duration": 78,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "db202b4c-27c0-4a19-aeb1-a46d86d757c8",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f8979249-7e19-4664-ab2d-a135d0acf716",
+          "title": "Express Server",
+          "fullFile": "C:\\my_sql_question\\upload\\__tests__\\test.js",
+          "file": "\\__tests__\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Express Server\"",
+              "fullTitle": "Express Server \"before each\" hook in \"Express Server\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "fs.writeFile(path.join(__dirname, '../public', 'request.txt'), '', done);",
+              "err": {},
+              "uuid": "3a9359ef-6d5b-402d-bc6f-78ce7958b647",
+              "parentUUID": "f8979249-7e19-4664-ab2d-a135d0acf716",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should log requests to request.txt",
+              "fullTitle": "Express Server should log requests to request.txt",
+              "timedOut": false,
+              "duration": 37,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .get('/')\n  .end((err, res) => {\n    if (err) return done(err);\n    fs.readFile(path.join(__dirname, '../public', 'request.txt'), 'utf8', (err, data) => {\n      if (err) return done(err);\n      expect(data).to.contain('GET /');\n      done();\n    });\n  });",
+              "err": {},
+              "uuid": "6fc766d1-f384-4a1d-b310-1139e38e70ba",
+              "parentUUID": "f8979249-7e19-4664-ab2d-a135d0acf716",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return a welcome message on GET /",
+              "fullTitle": "Express Server should return a welcome message on GET /",
+              "timedOut": false,
+              "duration": 4,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .get('/')\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res).to.have.status(200);\n    expect(res.text).to.equal('Welcome');\n    done();\n  });",
+              "err": {},
+              "uuid": "7835fa4f-796a-459f-a974-933567cb9c8a",
+              "parentUUID": "f8979249-7e19-4664-ab2d-a135d0acf716",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return a greeting message on POST /user with valid data",
+              "fullTitle": "Express Server should return a greeting message on POST /user with valid data",
+              "timedOut": false,
+              "duration": 11,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .post('/user')\n  .send({ name: 'John', age: 30 })\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res).to.have.status(200);\n    expect(res.body).to.have.property('message', 'Hello, John! You are 30 years old.');\n    done();\n  });",
+              "err": {},
+              "uuid": "3bc48613-8d16-4a61-a7dd-44df0e1d8065",
+              "parentUUID": "f8979249-7e19-4664-ab2d-a135d0acf716",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return an error on POST /user with missing data",
+              "fullTitle": "Express Server should return an error on POST /user with missing data",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(app)\n  .post('/user')\n  .send({ name: 'John' })\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res).to.have.status(400);\n    expect(res.body).to.have.property('error', 'Name and age are required');\n    done();\n  });",
+              "err": {},
+              "uuid": "e6143167-f19a-4684-8b49-a74ad8535050",
+              "parentUUID": "f8979249-7e19-4664-ab2d-a135d0acf716",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6fc766d1-f384-4a1d-b310-1139e38e70ba",
+            "7835fa4f-796a-459f-a974-933567cb9c8a",
+            "3bc48613-8d16-4a61-a7dd-44df0e1d8065",
+            "e6143167-f19a-4684-8b49-a74ad8535050"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 58,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
